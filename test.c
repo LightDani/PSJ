@@ -71,7 +71,10 @@ int main(int argc, char *argv[])
   // LOG_PRINT("Zing is back !!! %s %d",s,x++);
   }
 
-  void DieWithError(char *errorMessage)
+  
+}
+
+void DieWithError(char *errorMessage)
 {
     perror(errorMessage);
     exit(1);
@@ -110,5 +113,4 @@ void HandleTCPClient(int clntSocket)
     
     //close(clntSocket);    /* Close client socket */
     //printf("Client Socket has been closed. Waiting for connection..\n\n");
-}
 }
