@@ -99,7 +99,7 @@ void HandleTCPClient(int clntSocket)
     }
 	printf("Data yang diterima: %s\n", echoBuffer);
 
-    LOG_PRINT("suhu %d",echoBuffer);
+    LOG_PRINT("suhu %s",echoBuffer);
 
     printf("Data telah tersimpan\n"); 
         /* Echo message back to client */        
