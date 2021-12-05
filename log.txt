@@ -1,0 +1,4 @@
+[Sun Dec  5 21:46:15 2021] [test.c][line: 102] suhu j…@V
+[Sun Dec  5 21:46:25 2021] [test.c][line: 102] suhu j…@V
+[Sun Dec  5 21:46:35 2021] [test.c][line: 102] suhu j…@V
+[Sun Dec  5 21:46:45 2021] [test.c][line: 102] suhu j…@V
