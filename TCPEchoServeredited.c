@@ -5,6 +5,8 @@
 #include <string.h>     /* for memset() */
 #include <unistd.h>     /* for close() */
 
+void log_print(char* filename, int line, char *fmt,...);
+#define LOG_PRINT(...) log_print(__FILE__, __LINE__, __VA_ARGS__ )
 #define MAXPENDING 5    /* Maximum outstanding connection requests */
 #define RCVBUFSIZE 32   /* Size of receive buffer */
 
@@ -88,6 +90,7 @@ void HandleTCPClient(int clntSocket)
     if(strcmp(echoBuffer, "quit") == 0){
         break;
     }
+    log_print("suhu %s", echoBuffer);
 	printf("Data yang diterima: %s\n", echoBuffer);
     printf("Data telah tersimpan\n"); 
         /* Echo message back to client */        

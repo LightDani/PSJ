@@ -1,4 +1,0 @@
-[Sun Dec  5 22:11:38 2021] [test.c][line: 102] suhu 31.33
-[Sun Dec  5 22:11:48 2021] [test.c][line: 102] suhu 30.42
-[Sun Dec  5 22:11:58 2021] [test.c][line: 102] suhu 30.73
-[Sun Dec  5 22:12:08 2021] [test.c][line: 102] suhu 30.58
