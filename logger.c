@@ -8,8 +8,8 @@
 FILE *fp ;
 static int SESSION_TRACKER; //Keeps track of session
 
-void log_print(char* filename, int line, char *fmt,...);
-#define LOG_PRINT(...) log_print(__FILE__, __LINE__, __VA_ARGS__ )
+void log_print(char *fmt,...);
+#define LOG_PRINT(...) log_print(__VA_ARGS__ )
 
 char* print_time()
 {
@@ -30,7 +30,7 @@ char* print_time()
    
     return buf;
 }
-void log_print(char* filename, int line, char *fmt,...)
+void log_print(char *fmt,...)
 {
     va_list         list;
     char            *p, *r;
@@ -42,7 +42,7 @@ void log_print(char* filename, int line, char *fmt,...)
       fp = fopen ("log.txt","w");
     
     fprintf(fp,"%s ",print_time());
-    fprintf(fp,"[%s][line: %d] ",filename,line);
+    //fprintf(fp,"[%s][line: %d] ",filename,line);
     va_start( list, fmt );
 
     for ( p = fmt ; *p ; ++p )
