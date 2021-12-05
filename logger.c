@@ -4,9 +4,12 @@
 #include <time.h>
 #include <string.h>
 #include <stdlib.h>
-#include "logger.h"
+
 FILE *fp ;
 static int SESSION_TRACKER; //Keeps track of session
+
+void log_print(char* filename, int line, char *fmt,...);
+#define LOG_PRINT(...) log_print(__FILE__, __LINE__, __VA_ARGS__ )
 
 char* print_time()
 {
