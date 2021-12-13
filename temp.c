@@ -61,14 +61,6 @@ int getTemp(char* outStr)
     /*baudrate 115200, 8 bits, no parity, 1 stop bit */
     set_interface_attribs(fd, B9600);
 
-    /* simple output 
-    wlen = write(fd, "Hello!\n", 7);
-    if (wlen != 7) {
-        printf("Error from write: %d, %d\n", wlen, errno);
-    }
-    tcdrain(fd);    // delay for output 
-    */
-
     /* simple canonical input */
     
         unsigned char buf[6];
@@ -78,15 +70,10 @@ int getTemp(char* outStr)
         rdlen = read(fd, buf, sizeof(buf) - 1);
         if (rdlen > 0) {
             buf[rdlen] = 0;
-            //printf("Read %d:", rdlen);
             /* first display as hex numbers then ASCII */
             for (p = buf; rdlen-- > 0; p++) {
-                //printf(" 0x%x", *p);
-                *p;/* 
-                if (*p < ' ')
-                    *p = '.';   replace any control chars */
+                *p;
             }
-            //printf("%s", buf);
         } else if (rdlen < 0) {
             printf("Error from read: %d: %s\n", rdlen, strerror(errno));
         } else {  /* rdlen == 0 */

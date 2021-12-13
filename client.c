@@ -31,7 +31,6 @@ int main(int argc, char *argv[])
     }
 
     servIP = argv[1];             /* First arg: server IP address (dotted quad) */
-    //echoString = argv[2];         /* Second arg: string to echo */
         char temp[6];
         
         if (argc == 3)

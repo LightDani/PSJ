@@ -42,7 +42,6 @@ void log_print(char *fmt,...)
       fp = fopen ("log.txt","w");
     
     fprintf(fp,"%s ",print_time());
-    //fprintf(fp,"[%s][line: %d] ",filename,line);
     va_start( list, fmt );
 
     for ( p = fmt ; *p ; ++p )
