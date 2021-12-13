@@ -165,11 +165,11 @@ void *ThreadMain(void *threadArgs)
 
 void sig_handler(int signum){
     if (resp == 10) {
-        printf("Ingin berhenti? (y/n) ");
+        printf("\nIngin berhenti? (y/n) ");
         scanf("%c",&resp);
     }
     A:
-    printf("Ingin berhenti? (y/n) \n");
+    printf("\nIngin berhenti? (y/n) \n");
     scanf("%c",&resp);
     if (resp == 121) exit(EXIT_SUCCESS);
     else if (resp != 121 && resp != 110){
