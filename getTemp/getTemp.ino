@@ -8,7 +8,7 @@ void loop()       //main loop
 
 {
   int analogValue = analogRead(outputpin);
-  float millivolts = (analogValue / 2048.0) * 3100; //3300 is the voltage provided by NodeMCU
+  float millivolts = (analogValue / 2048.0) * 3100; //3100 is the voltage provided by NodeMCU
   float celsius = millivolts / 10;
   Serial.println(celsius);
   delay(10000);

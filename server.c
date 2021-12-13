@@ -39,7 +39,7 @@ int main (int argc, char *argv[]) {
     char jumlahThread;              // jumlah thread
 
 
-    signal(SIGINT,sig_handler);
+    signal(SIGINT, sig_handler);
     if (argc != 2) {     // Test for correct number of arguments
         fprintf(stderr, "Usage:  %s <Server Port>\n", argv[0]);
         exit(1);
@@ -174,7 +174,6 @@ void sig_handler(int signum){
     if (resp == 121) exit(EXIT_SUCCESS);
     else if (resp != 121 && resp != 110){
         printf("salah input. silahkan input ulang\n\n");
-        //scanf("%c",&resp);
         goto A;
     }
 }
