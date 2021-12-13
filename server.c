@@ -5,6 +5,7 @@
 #include <string.h>     // For memset()
 #include <unistd.h>     // For close()
 #include <pthread.h>    // For POSIX threads
+#include <signal.h>     // For SIGNAL
 
 // For logging
 void log_print(char *fmt,...);
@@ -26,6 +27,9 @@ struct ThreadArgs {
     int clntSock;   // Client socket descriptor
 };
 
+char resp;                    // Respon when interupting the server
+void sig_handler(int signum); // Signal function
+
 int main (int argc, char *argv[]) {
     int servSock;                   // Socket descriptor for server
     int clntSock;                   // Socket descriptor for client
@@ -34,6 +38,8 @@ int main (int argc, char *argv[]) {
     struct ThreadArgs *threadArgs;  // Pointer to thread Args
     char jumlahThread;              // jumlah thread
 
+
+    signal(SIGINT,sig_handler);
     if (argc != 2) {     // Test for correct number of arguments
         fprintf(stderr, "Usage:  %s <Server Port>\n", argv[0]);
         exit(1);
@@ -155,4 +161,20 @@ void *ThreadMain(void *threadArgs)
     printf("clntSockID %d\n", clntSock);
     HandleTCPClient(clntSock);
     return (NULL);
+}
+
+void sig_handler(int signum){
+    if (resp == 10) {
+        printf("Ingin berhenti? (y/n) ");
+        scanf("%c",&resp);
+    }
+    A:
+    printf("Ingin berhenti? (y/n) \n");
+    scanf("%c",&resp);
+    if (resp == 121) exit(EXIT_SUCCESS);
+    else if (resp != 121 && resp != 110){
+        printf("salah input. silahkan input ulang\n\n");
+        //scanf("%c",&resp);
+        goto A;
+    }
 }
